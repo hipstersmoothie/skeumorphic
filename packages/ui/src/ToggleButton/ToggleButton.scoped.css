@@ -1,3 +1,5 @@
+@import "../tokens.css";
+
 .root,
 .root * {
   all: unset;
@@ -10,16 +12,11 @@
   background: linear-gradient(0deg, #21283d, #262c42);
   box-shadow:
     inset 0.5px 1px 0.5px 0 #525b82,
-    0 100px 80px 0 rgba(95, 141, 156, 0.23),
-    0 41.78px 33.42px 0 rgba(95, 141, 156, 0.1653),
-    0 22.34px 17.87px 0 rgba(95, 141, 156, 0.1371),
-    0 12.52px 10.02px 0 rgba(95, 141, 156, 0.115),
-    0 6.65px 5.32px 0 rgba(95, 141, 156, 0.0929),
-    0 2.77px 2.21px 0 rgba(95, 141, 156, 0.0647);
+    var(--long-shadow);
+
   &[data-focus-visible="true"]:before {
-    @apply absolute inset-[-5.58px];
+    @apply absolute inset-[-5.58px] content-[''];
     @apply rounded-lg border-2 border-solid border-blue-500;
-    content: "";
   }
 }
 
@@ -37,9 +34,8 @@
   background-position: 10% 10%;
 
   &::before {
-    @apply absolute inset-0 z-[-1] -m-[0.5px];
+    @apply absolute inset-0 z-[-1] -m-[0.5px] content-[''];
     @apply rounded-full;
-    content: "";
     background: linear-gradient(-30deg, #2d334b, #262c43 47.06%);
   }
 }
@@ -80,8 +76,7 @@
 }
 
 .root .glow:after {
-  content: "";
-  @apply absolute inset-[-1px];
+  @apply absolute inset-[-1px] content-[''];
   @apply rounded-full;
   background-color: rgba(255, 92, 0, 0.6);
   filter: blur(4px);

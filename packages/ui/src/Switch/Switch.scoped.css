@@ -1,7 +1,10 @@
+@import "../tokens.css";
+
 .root {
   --switch-width: 94.22px;
   --switch-x-padding: 1.75px;
   --switch-circle-width: 26.38px;
+  --indicator-width: 64.37px;
 
   @apply h-[33.96px];
   @apply flex box-border;
@@ -16,9 +19,8 @@
 }
 
 .root[data-focus-visible="true"]:before {
-  @apply absolute inset-[-5.58px];
+  @apply absolute inset-[-5.58px] content-[''];
   @apply rounded-full border-2 border-solid border-blue-500;
-  content: "";
 }
 
 .input {
@@ -26,8 +28,6 @@
 }
 
 .indicator {
-  --indicator-width: 64.37px;
-
   @apply h-[30.75px] relative box-border;
   @apply transition-transform duration-200 translate-x-0;
 
@@ -41,13 +41,7 @@
     ),
     linear-gradient(110deg, white 1%, rgba(255, 255, 255, 0)),
     linear-gradient(0deg, #e4effc, #f4f9ff);
-  box-shadow:
-    0 100px 80px 0 rgba(95, 141, 156, 0.23),
-    0 41.78px 33.42px 0 rgba(95, 141, 156, 0.1653),
-    0 22.34px 17.87px 0 rgba(95, 141, 156, 0.1371),
-    0 12.52px 10.02px 0 rgba(95, 141, 156, 0.115),
-    0 6.65px 5.32px 0 rgba(95, 141, 156, 0.0929),
-    0 2.77px 2.21px 0 rgba(95, 141, 156, 0.0647);
+  box-shadow: var(--long-shadow);
 }
 
 .indicatorBody {
@@ -79,16 +73,14 @@
 
   &::before {
     @apply rounded-full;
-    @apply absolute inset-0;
-    content: "";
+    @apply absolute inset-0 content-[''];
     background: linear-gradient(35deg, rgba(255, 255, 255, 0.67) -20%, white);
   }
 
   &::after {
     @apply rounded-full;
-    @apply absolute inset-0 m-[0.3px];
+    @apply absolute inset-0 m-[0.3px] content-[''];
     border: 1px solid transparent;
-    content: "";
     background: linear-gradient(-150deg, #e2f0ff -10%, #ecf5ff);
     background-size: 120% 120%;
     background-position: 50% 50%;
@@ -100,8 +92,7 @@
 
   &::before {
     @apply rounded-full;
-    @apply absolute inset-0;
-    content: "";
+    @apply absolute inset-0 content-[''];
     background: linear-gradient(
         -130deg,
         rgba(255, 255, 255, 0.67) -30%,
@@ -112,9 +103,8 @@
 
   &::after {
     @apply rounded-full;
-    @apply absolute inset-0 m-[0.3px];
+    @apply absolute inset-0 m-[0.3px] content-[''];
     border: 1px solid transparent;
-    content: "";
     background: linear-gradient(-220deg, #dfeeff 0%, #f7fbff);
     background-repeat: no-repeat;
     background-size: 120% 120%;
@@ -130,35 +120,31 @@
     0 0.3px 0 0 rgba(255, 255, 255, 0.67);
 
   &::before {
-    @apply w-[1px] h-[16.5px] rounded relative;
-    @apply absolute top-1/2 left-1/2;
+    @apply w-[1px] h-[16.5px] rounded;
+    @apply absolute top-1/2 left-1/2 content-[''];
+    @apply transition-opacity duration-[125ms] opacity-0;
     transform: translate(-50%, -50%);
-    content: "";
     background: linear-gradient(0deg, #262c43, #515b83);
-    opacity: 0;
   }
 }
 
 .root[data-selected="true"] .light::before {
-  opacity: 1;
-  @apply delay-[200ms];
+  @apply delay-[200ms] opacity-100;
 }
 
 .glow {
   @apply absolute top-1/2 left-1/2;
   @apply w-[0.63px] h-[8.13px] rounded;
+  @apply transition-opacity duration-[150ms] opacity-0;
   transform: translate(-50%, -85%);
   background: linear-gradient(0deg, #262c43 0%, #ff6b00 50%, #262c43 100%);
   box-shadow: 0 0 1.7px 0 white;
   mix-blend-mode: plus-lighter;
-  @apply transition-opacity duration-[150ms];
-  opacity: 0;
 
   &::before {
     @apply w-[1px] h-[6.94px] rounded;
-    @apply absolute top-1/2 left-1/2;
+    @apply absolute top-1/2 left-1/2 content-[''];
     transform: translate(-21%, -60%);
-    content: "";
     background: linear-gradient(
       0deg,
       rgba(255, 255, 255, 0) 0%,
@@ -171,8 +157,7 @@
 }
 
 .root[data-selected="true"] .glow {
-  opacity: 1;
-  @apply delay-200;
+  @apply delay-200 opacity-100;
 }
 
 .stateLabelWrapper {

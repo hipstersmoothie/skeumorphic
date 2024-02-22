@@ -8,8 +8,7 @@
 }
 
 .root:after {
+  @apply absolute inset-0 top-[1px];
   content: attr(data-text);
-  @apply absolute inset-0;
-  top: 1px;
   color: #56648d;
 }
