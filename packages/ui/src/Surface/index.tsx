@@ -13,3 +13,10 @@ export const SpeckledGrey = ({
     <div className={makeClass(className, styles.speckledGrey)} {...props} />
   );
 };
+
+export const FlatGrey = ({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<"div">) => {
+  return <div className={makeClass(className, styles.flatGrey)} {...props} />;
+};

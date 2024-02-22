@@ -5,6 +5,10 @@ export default {
   component: [Surface.SpeckledGrey],
 };
 
-export function Basic() {
+export function SpeckledGrey() {
   return <Surface.SpeckledGrey style={{ height: "100vh", width: "100vw" }} />;
+}
+
+export function FlatGrey() {
+  return <Surface.FlatGrey style={{ height: "100vh", width: "100vw" }} />;
 }

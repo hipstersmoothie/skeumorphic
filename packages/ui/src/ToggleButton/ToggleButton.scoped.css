@@ -32,11 +32,10 @@
   background-position: 10% 10%;
 
   &::before {
-    content: "";
     @apply absolute inset-0 z-[-1] -m-[0.5px];
     @apply rounded-full;
+    content: "";
     background: linear-gradient(-30deg, #2d334b, #262c43 47.06%);
-    /* border-image: linear-gradient(to bottom, #2a2f45, #2a2f45) 1 100%; */
   }
 }
 
