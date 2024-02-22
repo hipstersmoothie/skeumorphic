@@ -1,0 +1,89 @@
+.root,
+.root * {
+  all: unset;
+}
+
+.root {
+  @apply h-[50px] w-[50px] p-[5.58px] relative z-0;
+  @apply flex items-center justify-center;
+  @apply rounded-lg box-border;
+  background: linear-gradient(0deg, #21283d, #262c42);
+  box-shadow:
+    inset 0.5px 1px 0.5px 0 #525b82,
+    0 100px 80px 0 rgba(95, 141, 156, 0.23),
+    0 41.78px 33.42px 0 rgba(95, 141, 156, 0.1653),
+    0 22.34px 17.87px 0 rgba(95, 141, 156, 0.1371),
+    0 12.52px 10.02px 0 rgba(95, 141, 156, 0.115),
+    0 6.65px 5.32px 0 rgba(95, 141, 156, 0.0929),
+    0 2.77px 2.21px 0 rgba(95, 141, 156, 0.0647);
+}
+
+.divet {
+  @apply h-full w-full rounded-full box-border relative;
+  border: 0.5px solid transparent;
+  background: radial-gradient(
+      20% 20% at 75% 90%,
+      #353d56 0%,
+      rgba(32, 37, 58, 0%) 100%
+    ),
+    radial-gradient(60% 50% at 73% 91%, #353d56 0%, #20253a 100%);
+  background-clip: padding-box;
+  background-size: 120% 120%;
+  background-position: 10% 10%;
+
+  &::before {
+    content: "";
+    @apply absolute inset-0 z-[-1] -m-[0.5px];
+    @apply rounded-full;
+    background: linear-gradient(-30deg, #2d334b, #262c43 47.06%);
+    /* border-image: linear-gradient(to bottom, #2a2f45, #2a2f45) 1 100%; */
+  }
+}
+
+.shine {
+  @apply absolute inset-[5.58px] box-border rounded-full z-[-1];
+  /* border: 0.5px solid #4a5273; */
+  background: linear-gradient(-40deg, #4a5273, #262c43 47.06%);
+  filter: blur(1.6px);
+}
+
+.indicator {
+  @apply h-[7.13px] w-[7.13px] bg-black rounded-full;
+  @apply absolute top-[3.7px] right-[3.7px];
+  box-shadow: 0 0.3px 0 0 rgba(255, 255, 255, 0.25);
+}
+
+.light {
+  @apply h-[3.62px] w-[3.62px] rounded-full;
+  @apply absolute top-[1.76px] right-[1.76px];
+  background: radial-gradient(50% 50% at 50% 50%, #21283d 60%, black 100%);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.root .glow {
+  @apply h-[3.62px] w-[3.62px] rounded-full block;
+  @apply transition-opacity duration-[50ms] opacity-0;
+  background: radial-gradient(50% 50% at 50% 50%, #ff9900 80%, #ff5c00 100%);
+}
+
+.root .glow:before {
+  content: "";
+  @apply absolute inset-[-1px];
+  @apply rounded-full;
+  background: radial-gradient(50% 50% at 50% 50%, #ff9900 80%, #ff5c00 100%);
+  filter: blur(2.5px);
+  mix-blend-mode: plus-lighter;
+}
+
+.root .glow:after {
+  content: "";
+  @apply absolute inset-[-1px];
+  @apply rounded-full;
+  background-color: rgba(255, 92, 0, 0.6);
+  filter: blur(4px);
+  mix-blend-mode: plus-lighter;
+}
+
+.root[aria-pressed="true"] .glow {
+  @apply opacity-100;
+}
