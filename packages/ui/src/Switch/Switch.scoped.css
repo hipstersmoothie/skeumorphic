@@ -15,6 +15,12 @@
     0 0.5px 0 0 rgba(255, 255, 255, 0.67);
 }
 
+.root[data-focus-visible="true"]:before {
+  @apply absolute inset-[-5.58px];
+  @apply rounded-full border-2 border-solid border-blue-500;
+  content: "";
+}
+
 .input {
   all: unset;
 }
