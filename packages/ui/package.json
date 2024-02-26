@@ -44,7 +44,9 @@
   },
   "dependencies": {
     "@createinc/archetype": "^0.0.12",
+    "@radix-ui/react-use-controllable-state": "^1.0.1",
     "clsx": "^2.1.0",
+    "react-aria": "^3.32.1",
     "react-aria-components": "^1.1.1"
   }
 }

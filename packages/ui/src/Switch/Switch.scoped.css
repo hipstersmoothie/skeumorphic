@@ -142,9 +142,9 @@
   mix-blend-mode: plus-lighter;
 
   &::before {
-    @apply w-[1px] h-[6.94px] rounded;
+    @apply w-[2px] h-[6px] rounded;
     @apply absolute top-1/2 left-1/2 content-[''];
-    transform: translate(-21%, -60%);
+    transform: translate(-50%, -60%);
     background: linear-gradient(
       0deg,
       rgba(255, 255, 255, 0) 0%,
