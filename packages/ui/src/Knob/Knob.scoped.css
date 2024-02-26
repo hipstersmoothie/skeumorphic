@@ -19,8 +19,8 @@
 .extraShadow {
   @apply relative;
   @apply w-[127.68px] h-[127.68px];
-  top: 26px;
-  left: 18.1px;
+  top: 25.5px;
+  left: 18.5px;
 }
 
 .extraShadow:before {
@@ -76,8 +76,14 @@
 }
 
 .tick {
-  @apply absolute w-[6px] h-[1.5px] rounded;
+  @apply absolute w-[6px] h-[2px] rounded;
   @apply top-1/2 left-1/2 origin-center;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .tick {
+    @apply h-[1.5px];
+  }
 }
 
 .tick.animated {
